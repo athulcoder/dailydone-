@@ -1,4 +1,4 @@
-# ✅ DailyDone
+# ✅ DailyDone : Todo App
 
 **DailyDone** is a simple and clean daily to-do tracker with user authentication. Add tasks for each day, track what’s pending or completed, and stay organized — one day at a time.
 
