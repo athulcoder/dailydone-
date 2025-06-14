@@ -1,40 +1,34 @@
-# 🗓️ Ticko – Your Daily Task Tracker
+# ✅ DailyDone
 
-**Ticko** is a modern, daily-focused to-do tracker with built-in authentication. Plan your day, stay focused, and track your productivity with a clean, responsive UI.
-
----
-
-## ✨ Features
-
-- ✅ Add and manage to-dos for each day of the month
-- 🔐 User Authentication (Login / Register / Logout)
-- 📅 Calendar-based daily planning
-- ⏱️ Track time spent on tasks
-- 📊 View completed and pending task stats
-- 🔔 Reminders and smart suggestions (upcoming)
-- 🎨 Beautiful Tailwind CSS v4 design
-- ☁️ Data persistence (MongoDB / localStorage / etc.)
+**DailyDone** is a simple and clean daily to-do tracker with user authentication. Add tasks for each day, track what’s pending or completed, and stay organized — one day at a time.
 
 ---
 
-## 🔐 Authentication
+## 🚀 Features
 
-- Secure login and registration system
-- Authenticated users only can:
-  - View their own tasks
-  - Add, edit, delete todos
-  - Track statistics
-- Session/token-based protection for private routes
-
-> Auth is implemented using [Your Method] (e.g., NextAuth.js / JWT with sessions / Firebase Auth)
+- 📅 Daily to-do list
+- ✅ Mark tasks as completed
+- 🔐 User login and registration (JWT-based)
+- 📊 View total pending and completed tasks
+- 🧼 Clean UI with Tailwind CSS v4
 
 ---
 
-## 🚀 Getting Started
+## 🧱 Tech Stack
 
-### 1. Clone the repository
+- **Next.js 14 (App Router)**
+- **Tailwind CSS v4**
+- **MongoDB + Mongoose**
+- **JWT for authentication**
+- **bcrypt for password hashing**
+
+---
+
+## 🔧 Getting Started
+
+1. **Clone the repo**
 
 ```bash
-git clone https://github.com/yourusername/ticko.git
-cd ticko
+git clone https://github.com/yourusername/dailydone.git
+cd dailydone
 ```
