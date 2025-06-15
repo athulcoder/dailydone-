@@ -14,8 +14,8 @@ import {
 
 export default function SideNav() {
   return (
-    <nav className="h-screen w-full flex flex-col items-center text-white">
-      <div className="h-[130px] w-full bg-[#16022f] flex flex-col justify-center">
+    <nav className="h-screen w-full flex flex-col items-center text-white ">
+      <div className="h-[130px] w-full bg-[#16022f] flex flex-col justify-center p-3 ">
         <div className="flex items-start justify-between mx-2">
           <div className="rounded-full w-[60px] h-[60px] bg-[#003755]" />
           <Sun className="mt-2 text-white" />

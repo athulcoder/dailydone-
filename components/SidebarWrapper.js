@@ -8,10 +8,14 @@ export default function SidebarWrapper() {
   const sidebarRef = useRef(null);
   const touchStartX = useRef(0);
 
-  // Close on outside click
+  // Close sidebar when clicking outside (on mobile)
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+      if (
+        window.innerWidth < 1024 &&
+        sidebarRef.current &&
+        !sidebarRef.current.contains(e.target)
+      ) {
         setOpen(false);
       }
     };
@@ -19,14 +23,14 @@ export default function SidebarWrapper() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Swipe to close on mobile
+  // Swipe-to-close on mobile
   useEffect(() => {
     const handleTouchStart = (e) => {
       touchStartX.current = e.touches[0].clientX;
     };
     const handleTouchEnd = (e) => {
       const touchEndX = e.changedTouches[0].clientX;
-      if (touchStartX.current - touchEndX > 50) {
+      if (touchStartX.current - touchEndX > 50 && window.innerWidth < 1024) {
         setOpen(false);
       }
     };
@@ -41,33 +45,40 @@ export default function SidebarWrapper() {
 
   return (
     <>
-      {/* Menu Button (only on mobile) */}
-      <button
-        onClick={() => setOpen(true)}
-        className="p-2 m-2 bg-blue-600 text-white rounded fixed top-3 left-3 z-50 "
-      >
-        ☰ Menu
-      </button>
+      {/* Top Navbar */}
+      <nav className=" flex items-center justify-between bg-[#111c32] text-white p-4 fixed w-full top-0 z-50 shadow-md h-16 ">
+        <h1 className="text-lg font-semibold lg:ml-[220px]">DailyDone</h1>
+        <button
+          onClick={() => setOpen(true)}
+          className={` bg-blue-600 px-3 py-1 rounded text-white ${
+            open ? "hidden" : "block"
+          } lg:hidden`}
+        >
+          ☰
+        </button>
+      </nav>
 
-      {/* Backdrop with blur only on mobile */}
+      {/* Backdrop (mobile only) */}
       {open && (
         <div
           onClick={() => setOpen(false)}
-          className="fixed inset-0 backdrop-blur-sm z-40 xs:hidden"
+          className="fixed inset-0 backdrop-blur-3xl z-40 lg:hidden"
         />
       )}
 
-      {/* Responsive Sidebar */}
+      {/* Sidebar */}
       <aside
         ref={sidebarRef}
         className={`
-          fixed top-0 left-0 h-full z-50
+          h-full bg-[#111c32] text-white z-50 overflow-y-auto flex flex-col
           transition-transform duration-300 ease-in-out
-          bg-[#111c32] text-white 
-          flex flex-col overflow-y-auto
-          2xl:relative 2xl:translate-x-0 xs:flex
-          w-[80vw] xs:w-[260px] 
+
+          /* Mobile sliding */
+          fixed top-0 left-0 w-[80vw] max-w-[260px]
           ${open ? "translate-x-0" : "-translate-x-full"}
+
+          /* lg and up: static, always shown */
+          lg:translate-x-0 lg:relative lg:w-[260px]
         `}
       >
         <SideNav />
