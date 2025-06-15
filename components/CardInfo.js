@@ -1,11 +1,7 @@
-import React from "react";
-
-function CardInfo() {
+export default function CardInfo() {
   return (
-    <div className="bg-amber-500 w-[100px] h-[80px] rounded-xl m-5 flex justify-center items-center">
-      24 Hour
+    <div className="w-[120px] h-[90px] bg-[#580145] text-[#ececec] flex items-center justify-center rounded-xl shadow-lg text-lg font-bold">
+      24 Tasks
     </div>
   );
 }
-
-export default CardInfo;
